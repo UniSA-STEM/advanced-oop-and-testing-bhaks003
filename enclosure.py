@@ -38,7 +38,9 @@ class Enclosure:
     def add_animal(self, animal):
         if animal.get_category() != self.__animal_type:
             raise ValueError(
-                f"Cannot add {animal.get_name()} ({animal.get_category()}) to {self.__name} enclosure. Only {self.__animal_type_allowed}s allowed.")
+                f"Cannot add {animal.get_name()} ({animal.get_category()}) to {self.__name} enclosure. "
+                f"Only {self.__animal_type}s allowed."
+            )
         self.__animals.append(animal)
 
     def remove_animal(self, name):
@@ -66,7 +68,6 @@ class Enclosure:
 
 from mammal import Mammal
 from bird import Bird
-from enclosure import Enclosure
 
 savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
 lion = Mammal("Lion", "Simba", 5, "Meat")
@@ -76,7 +77,8 @@ savannah.add_animal(lion)
 savannah.add_animal(giraffe)
 
 print(savannah)
-print("Animals:", savannah.list_animals())
+print("Animals:")
+print(savannah.list_animals())
 print(savannah.clean())
 
 aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
