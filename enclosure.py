@@ -16,3 +16,7 @@ class Enclosure:
         self.__cleanliness_level = "Clean"
         self.__animals = []
 
+    def add_animal(self, animal):
+        self.__animals.append(animal)
+
+
