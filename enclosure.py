@@ -19,7 +19,21 @@ class Enclosure:
     def add_animal(self, animal):
         self.__animals.append(animal)
 
-    def remvoe_animal(self, animal):
-        self.__animals.remove(animal)
+    def remove_animal(self, name):
+        for animal in self.__animals:
+            if animal.get_name().lower() == name.lower():
+                self.__animals.remove(animal)
+                return f"{name} has been remoed from the {self.__name} enclosure."
+        return f"{name} not found  in the {self.__name} enclosure."
+
+    def list_animals(self):
+        if not self.__animals:
+            return f"THere are no animals found in the {self.__name} enclosure."
+        result = ""
+        for animal in self.__animals:
+            result += animal.get_name() + " (" + animal.__get_species() + ")\n"
+        return result
+
+
 
 
