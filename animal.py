@@ -55,3 +55,12 @@ class Animal(ABC):
         if index < 0 or index >= len(self.__health_records):
             raise IndexError("Invalid health record index")
         self.__health_records[index].resolve(notes)
+
+    def has_serious_active_issues(self):
+        i = 0
+        while i < len(self.__health_records):
+            record = self.__health_records[i]
+            if record.is_serious():
+                return True
+            i = i + 1
+        return False
