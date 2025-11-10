@@ -64,3 +64,9 @@ class Animal(ABC):
                 return True
             i = i + 1
         return False
+
+    def get_health_summary(self):
+        summary = []
+        for record in self.__health_records:
+            summary.append(str(record))
+        return summary
