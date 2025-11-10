@@ -38,3 +38,11 @@ class Animal(ABC):
     def assing_enclosure(self, enclosure):
         self.__enclosure = enclosure
 
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+    @abstractmethod
+    def daily_care(self):
+        pass
+
