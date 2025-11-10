@@ -20,4 +20,11 @@ class Animal(ABC):
         self.__enclosure = []
         self.__health_records = []
 
+    def get_category(self):
+        return self.__category
 
+    def get_species(self):
+        return self.__species
+
+    def get_name(self):
+        return self.__name
