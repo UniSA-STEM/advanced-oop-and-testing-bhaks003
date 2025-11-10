@@ -9,6 +9,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 
 from abc import ABC, abstractmethod
+from health_record import HealthRecord
 
 class Animal(ABC):
     def __init__(self, species, name, age, diet, category):
@@ -46,3 +47,6 @@ class Animal(ABC):
     def daily_care(self):
         pass
 
+    def add_health_issues(self, description, severity, treatment):
+        record = HealthRecord(description, severity, treatment)
+        self.__health_records.append(record)
