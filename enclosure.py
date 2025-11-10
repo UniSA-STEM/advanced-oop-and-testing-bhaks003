@@ -19,6 +19,12 @@ class Enclosure:
     def get_cleanliness_level(self):
         return self.__cleanliness_level
 
+    def get_environement_type(self):
+        return self.__environement_type
+
+    def get_animal_count(self):
+        return len(self.__animals)
+
     def clean(self):
         self.__cleanliness_level = "Clean"
         return f"{self.__name} has been fully cleaned"
