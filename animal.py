@@ -28,3 +28,9 @@ class Animal(ABC):
 
     def get_name(self):
         return self.__name
+
+    def feed(self):
+        return self.__name + "the" + self.__species + "is eating" + self.__diet + "."
+
+    def sleep(self):
+        return self.__name + "the" + self.__species + "is sleeping calmly."
