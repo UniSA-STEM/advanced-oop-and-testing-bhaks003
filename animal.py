@@ -50,3 +50,8 @@ class Animal(ABC):
     def add_health_issues(self, description, severity, treatment):
         record = HealthRecord(description, severity, treatment)
         self.__health_records.append(record)
+
+    def resolve_health_issue(self, index, notes):
+        if index < 0 or index >= len(self.__health_records):
+            raise IndexError("Invalid health record index")
+        self.__health_records[index].resolve(notes)
