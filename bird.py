@@ -13,4 +13,9 @@ class Bird(Animal):
     def __init__(self, species, name, age, diet):
         super().__init__(species, name, age, diet, "bird")
 
+    def make_sound(self):
+        return self.get_name() + "the" + self.get_species() + "makes a sound squirk or squawks"
+
+    def daily_care(self):
+        return self.get_name() + "requires a arial enclosure, clean perches and fresh water"
 
