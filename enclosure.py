@@ -8,9 +8,9 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class Enclosure:
-    def __init__(self, name, environement_type, size_sqkm, animal_type):
+    def __init__(self, name, environment_type, size_sqkm, animal_type):
         self.__name = name
-        self.__environement_type = environement_type
+        self.__environment_type = environment_type
         self.__size_sqkm = size_sqkm
         self.__animal_type = animal_type
         self.__cleanliness_level = "Clean"
@@ -19,17 +19,15 @@ class Enclosure:
     def get_cleanliness_level(self):
         return self.__cleanliness_level
 
-    def get_environement_type(self):
-        return self.__environement_type
+    def get_environment_type(self):
+        return self.__environment_type
 
     def get_animal_count(self):
         return len(self.__animals)
 
     def clean(self):
         self.__cleanliness_level = "Clean"
-        return f"{self.__name} has been fully cleaned"
-
-
+        return f"{self.__name} has been fully cleaned."
 
     def add_animal(self, animal):
         self.__animals.append(animal)
@@ -38,13 +36,41 @@ class Enclosure:
         for animal in self.__animals:
             if animal.get_name().lower() == name.lower():
                 self.__animals.remove(animal)
-                return f"{name} has been remoed from the {self.__name} enclosure."
-        return f"{name} not found  in the {self.__name} enclosure."
+                return f"{name} has been removed from the {self.__name} enclosure."
+        return f"{name} not found in the {self.__name} enclosure."
 
     def list_animals(self):
         if not self.__animals:
-            return f"THere are no animals found in the {self.__name} enclosure."
+            return f"There are no animals found in the {self.__name} enclosure."
         result = ""
         for animal in self.__animals:
-            result += animal.get_name() + " (" + animal.__get_species() + ")\n"
+            result += animal.get_name() + " (" + animal.get_species() + ")\n"
         return result
+
+    def __str__(self):
+        return (
+            f"Enclosure: {self.__name} | Type: {self.__animal_type} | "
+            f"Environment: {self.__environment_type} | Size: {self.__size_sqkm} sq.km | "
+            f"Animals: {self.get_animal_count()} | Cleanliness: {self.__cleanliness_level}"
+        )
+
+
+# from mammal import Mammal
+# from bird import Bird
+# from enclosure import Enclosure
+#
+# savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
+# lion = Mammal("Lion", "Simba", 5, "Meat")
+# giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
+#
+# savannah.add_animal(lion)
+# savannah.add_animal(giraffe)
+#
+# print(savannah)
+# print("Animals:", savannah.list_animals())
+# print(savannah.clean())
+#
+# aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
+# parrot = Bird("Parrot", "Polly", 2, "Seeds")
+# aviary.add_animal(parrot)
+# print(aviary)
