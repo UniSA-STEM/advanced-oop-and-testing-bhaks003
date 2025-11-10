@@ -9,6 +9,12 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 class Enclosure:
     def __init__(self, name, environment_type, size_sqkm, animal_type):
+        if not name:
+            raise ValueError("Enclosure name cannot be empty.")
+        if size_sqkm <= 0:
+            raise ValueError("Enclosure size must be greater than 0.")
+        if animal_type not in ["mammal", "bird", "reptile"]:
+            raise ValueError("Allowed animal type must be one of: mammal, bird, reptile.")
         self.__name = name
         self.__environment_type = environment_type
         self.__size_sqkm = size_sqkm
@@ -30,6 +36,9 @@ class Enclosure:
         return f"{self.__name} has been fully cleaned."
 
     def add_animal(self, animal):
+        if animal.get_category() != self.__animal_type:
+            raise ValueError(
+                f"Cannot add {animal.get_name()} ({animal.get_category()}) to {self.__name} enclosure. Only {self.__animal_type_allowed}s allowed.")
         self.__animals.append(animal)
 
     def remove_animal(self, name):
@@ -55,22 +64,22 @@ class Enclosure:
         )
 
 
-# from mammal import Mammal
-# from bird import Bird
-# from enclosure import Enclosure
-#
-# savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
-# lion = Mammal("Lion", "Simba", 5, "Meat")
-# giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
-#
-# savannah.add_animal(lion)
-# savannah.add_animal(giraffe)
-#
-# print(savannah)
-# print("Animals:", savannah.list_animals())
-# print(savannah.clean())
-#
-# aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
-# parrot = Bird("Parrot", "Polly", 2, "Seeds")
-# aviary.add_animal(parrot)
-# print(aviary)
+from mammal import Mammal
+from bird import Bird
+from enclosure import Enclosure
+
+savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
+lion = Mammal("Lion", "Simba", 5, "Meat")
+giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
+
+savannah.add_animal(lion)
+savannah.add_animal(giraffe)
+
+print(savannah)
+print("Animals:", savannah.list_animals())
+print(savannah.clean())
+
+aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
+parrot = Bird("Parrot", "Polly", 2, "Seeds")
+aviary.add_animal(parrot)
+print(aviary)
