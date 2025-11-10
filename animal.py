@@ -34,3 +34,7 @@ class Animal(ABC):
 
     def sleep(self):
         return self.__name + "the" + self.__species + "is sleeping calmly."
+
+    def assing_enclosure(self, enclosure):
+        self.__enclosure = enclosure
+
