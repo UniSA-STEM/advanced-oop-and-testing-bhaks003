@@ -16,6 +16,15 @@ class Enclosure:
         self.__cleanliness_level = "Clean"
         self.__animals = []
 
+    def get_cleanliness_level(self):
+        return self.__cleanliness_level
+
+    def clean(self):
+        self.__cleanliness_level = "Clean"
+        return f"{self.__name} has been fully cleaned"
+
+
+
     def add_animal(self, animal):
         self.__animals.append(animal)
 
@@ -33,7 +42,3 @@ class Enclosure:
         for animal in self.__animals:
             result += animal.get_name() + " (" + animal.__get_species() + ")\n"
         return result
-
-
-
-
