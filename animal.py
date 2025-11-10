@@ -70,3 +70,6 @@ class Animal(ABC):
         for record in self.__health_records:
             summary.append(str(record))
         return summary
+
+    def __str__(self):
+        return self.__name + " (" + self.__species + ", " + self.__category + ", age " + str(self.__age) + ")"
