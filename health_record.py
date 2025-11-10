@@ -8,15 +8,18 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class HealthRecord:
-    def __init__(self, description, severity, treatment):
+    def __init__(self, description, severity, treatment, date_reported):
         if not description:
             raise ValueError("Health issue description cannot be empty")
         if severity not in ["low", "moderate", "high", "serious"]:
-            raise ValueError("Severity must be one only which is low, moderate, high, critical")
+            raise ValueError("Severity must be one only which is low, moderate, high, serious")
+        if date_reported.count("/") != 2:
+            raise ValueError("Date must be entered in the format DD/MM/YY.")
 
         self.__description = description
         self.__severity = severity
         self.__treatment = treatment
+        self.__date_reported = date_reported
         self.__active = True
         self.__resolution_notes = ''
 
@@ -29,4 +32,4 @@ class HealthRecord:
         status = "active"
         if not self.__active:
             status = "Treated"
-        return status + ":" + self.__description + " (" + self.__severity + ")"
+        return status + ":" + self.__description + " (" + self.__severity + ")" + self.__date_reported
