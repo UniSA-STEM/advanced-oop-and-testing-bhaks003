@@ -19,4 +19,7 @@ class Enclosure:
     def add_animal(self, animal):
         self.__animals.append(animal)
 
+    def remvoe_animal(self, animal):
+        self.__animals.remove(animal)
+
 
