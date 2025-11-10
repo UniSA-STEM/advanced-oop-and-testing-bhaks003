@@ -11,7 +11,7 @@ class HealthRecord:
     def __init__(self, description, severity, treatment):
         if not description:
             raise ValueError("Health issue description cannot be empty")
-        if severity not in ["low", "moderate", "high", "critical"]:
+        if severity not in ["low", "moderate", "high", "serious"]:
             raise ValueError("Severity must be one only which is low, moderate, high, critical")
 
         self.__description = description
@@ -20,3 +20,13 @@ class HealthRecord:
         self.__active = True
         self.__resolution_notes = ''
 
+    def is_serious(self):
+        if self.__active and (self.__severity == "serious" or self.__severity == "high"):
+            return True
+        return False
+
+    def __str__(self):
+        status = "active"
+        if not self.__active:
+            status = "Treated"
+        return status + ":" + self.__description + " (" + self.__severity + ")"
