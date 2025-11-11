@@ -11,6 +11,10 @@ from health_record import HealthRecord
 
 class Staff:
     def __init__(self, name, role):
+        if not name:
+            raise ValueError("Name cannot be empty")
+        if not role:
+            raise ValueError("Role cannot be empty")
         self.name = name
         self.role = role
 
@@ -19,3 +23,6 @@ class Staff:
 
     def get_role(self):
         return self.role
+
+    def __str__(self):
+        return f"Staff: {self.name} | Role: {self.role}"
