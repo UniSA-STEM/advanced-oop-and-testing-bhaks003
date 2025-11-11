@@ -15,14 +15,14 @@ class Staff:
             raise ValueError("Name cannot be empty")
         if not role:
             raise ValueError("Role cannot be empty")
-        self.name = name
-        self.role = role
+        self.__name = name
+        self.__role = role
 
     def get_name(self):
-        return self.name
+        return self.__name
 
     def get_role(self):
-        return self.role
+        return self__role
 
     def __str__(self):
-        return f"Staff: {self.name} | Role: {self.role}"
+        return f"Staff: {self.__name} | Role: {self.__role}"
