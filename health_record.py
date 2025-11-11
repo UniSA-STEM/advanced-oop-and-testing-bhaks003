@@ -28,8 +28,16 @@ class HealthRecord:
             return True
         return False
 
+    def mark_resolved(self, notes=""):
+        self.__active = False
+        self.__resolution_notes = notes
+
     def __str__(self):
         status = "active"
         if not self.__active:
             status = "Treated"
-        return status + ":" + self.__description + " (" + self.__severity + ")" + self.__date_reported
+        text_display =  status + ":" + self.__description + " (" + self.__severity + ")" + self.__date_reported
+        if self.__resolution_notes:
+            text_display += f" | Notes: {self.__resolution_notes}"
+        return text_display
+
