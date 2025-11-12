@@ -8,6 +8,11 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class Enclosure:
+    """
+    the class enclosure represent a physical area in a zoo where animals are kept.
+    each enclosure has its environment type, size and animal category restrictions
+    and cleanliness level. It will also have methods like adding, removing and listing animals.
+    """
     def __init__(self, name, environment_type, size_sqkm, animal_type):
         if not name:
             raise ValueError("Enclosure name cannot be empty.")
@@ -20,8 +25,9 @@ class Enclosure:
         self.__size_sqkm = size_sqkm
         self.__animal_type = animal_type
         self.__cleanliness_level = "Clean"
-        self.__animals = []
+        self.__animals = [] #using a list to store all animals assigned to enclosure
 
+    #using getters method
     def get_cleanliness_level(self):
         return self.__cleanliness_level
 
@@ -31,10 +37,18 @@ class Enclosure:
     def get_animal_count(self):
         return len(self.__animals)
 
+    #peak enclosure actions
     def clean(self):
+        """
+        this will reset the cleanliness level to clean and will also display the appropriate message
+        """
         self.__cleanliness_level = "Clean"
         return f"{self.__name} has been fully cleaned."
 
+    """
+    this add_animal method will be able to add an animal to the animals list
+    if animal's category it same then only it will be able to add 
+    """
     def add_animal(self, animal):
         if animal.get_category() != self.__animal_type:
             raise ValueError(
@@ -43,6 +57,9 @@ class Enclosure:
             )
         self.__animals.append(animal)
 
+    """
+    this method will remove an animal from the enclosure list if none found it will still display the message not found
+    """
     def remove_animal(self, name):
         for animal in self.__animals:
             if animal.get_name().lower() == name.lower():
@@ -50,6 +67,7 @@ class Enclosure:
                 return f"{name} has been removed from the {self.__name} enclosure."
         return f"{name} not found in the {self.__name} enclosure."
 
+    # this method is will display the animals currently present  in the enclosure and also format how to will show.
     def list_animals(self):
         if not self.__animals:
             return f"There are no animals found in the {self.__name} enclosure."
@@ -58,7 +76,7 @@ class Enclosure:
             result += animal.get_name() + " (" + animal.get_species() + ")\n"
         return result
 
-    def __str__(self):
+    def __str__(self): # string conversion method
         return (
             f"Enclosure: {self.__name} | Type: {self.__animal_type} | "
             f"Environment: {self.__environment_type} | Size: {self.__size_sqkm} sq.km | "
@@ -66,22 +84,22 @@ class Enclosure:
         )
 
 
-from mammal import Mammal
-from bird import Bird
-
-savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
-lion = Mammal("Lion", "Simba", 5, "Meat")
-giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
-
-savannah.add_animal(lion)
-savannah.add_animal(giraffe)
-
-print(savannah)
-print("Animals:")
-print(savannah.list_animals())
-print(savannah.clean())
-
-aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
-parrot = Bird("Parrot", "Polly", 2, "Seeds")
-aviary.add_animal(parrot)
-print(aviary)
+# from mammal import Mammal
+# from bird import Bird
+#
+# savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
+# lion = Mammal("Lion", "Simba", 5, "Meat")
+# giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
+#
+# savannah.add_animal(lion)
+# savannah.add_animal(giraffe)
+#
+# print(savannah)
+# print("Animals:")
+# print(savannah.list_animals())
+# print(savannah.clean())
+#
+# aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
+# parrot = Bird("Parrot", "Polly", 2, "Seeds")
+# aviary.add_animal(parrot)
+# print(aviary)
