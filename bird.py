@@ -20,7 +20,7 @@ class Bird(Animal):
         overiding the method passed from the parent class and changing according to child class need
         in this scenario it will the display the name species and sound bird's make
         """
-        return self.get_name() + "the" + self.get_species() + "makes a sound squirk or squawks"
+        return self.get_name() + " the " + self.get_species() + " makes a sound squirk or squawks"
 
     """
     orviding of the abstract daily_care method 
@@ -28,7 +28,7 @@ class Bird(Animal):
     """
     def daily_care(self):
 
-        return self.get_name() + "requires a arial enclosure, clean perches and fresh water"
+        return self.get_name() + " requires a arial enclosure, clean perches and fresh water"
 
 # parrot = Bird("Parrot", "Polly", 2, "Seeds")
 # print(parrot.make_sound())
