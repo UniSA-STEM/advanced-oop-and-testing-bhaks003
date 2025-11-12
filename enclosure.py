@@ -56,16 +56,17 @@ class Enclosure:
                 f"Only {self.__animal_type}s allowed."
             )
         self.__animals.append(animal)
+        print(f"Added {animal.get_name()} to {self.__name}")
 
     """
     this method will remove an animal from the enclosure list if none found it will still display the message not found
     """
     def remove_animal(self, name):
         for animal in self.__animals:
-            if animal.get_name().lower() == name.lower():
+            if animal.get_name() == name:
                 self.__animals.remove(animal)
-                return f"{name} has been removed from the {self.__name} enclosure."
-        return f"{name} not found in the {self.__name} enclosure."
+                print(f"{name} has been removed from the {self.__name} enclosure.")
+        print(f"{name} not found in the {self.__name} enclosure.")
 
     # this method is will display the animals currently present  in the enclosure and also format how to will show.
     def list_animals(self):
@@ -87,19 +88,19 @@ class Enclosure:
 # from mammal import Mammal
 # from bird import Bird
 #
-# savannah = Enclosure("Savannah Plains", "Savannah", 0.8, "mammal")
-# lion = Mammal("Lion", "Simba", 5, "Meat")
-# giraffe = Mammal("Giraffe", "Melman", 7, "Leaves")
+# woodland = Enclosure("Black Woodlands", "Woodland", 0.8, "mammal")
+# lion = Mammal("Lion", "Rocket", 5, "Meat")
+# giraffe = Mammal("Giraffe", "Lambu", 7, "Leaves")
 #
-# savannah.add_animal(lion)
-# savannah.add_animal(giraffe)
+# woodland.add_animal(lion)
+# woodland.add_animal(giraffe)
 #
-# print(savannah)
+# print(woodland)
 # print("Animals:")
-# print(savannah.list_animals())
-# print(savannah.clean())
+# print(woodland.list_animals())
+# print(woodland.clean())
 #
 # aviary = Enclosure("Tropical Aviary", "Rainforest", 0.2, "bird")
-# parrot = Bird("Parrot", "Polly", 2, "Seeds")
+# parrot = Bird("Parrot", "Popat", 2, "Seeds")
 # aviary.add_animal(parrot)
 # print(aviary)

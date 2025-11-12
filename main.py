@@ -57,3 +57,23 @@ print("========== showing the string conversion implementation. =======")
 print(woodland)
 print(aviary)
 print(lagoons)
+
+
+print("\n")
+
+print("======== Adding and removing the animals inside the enclosure. ======= ")
+woodland.add_animal(lion)
+aviary.add_animal(crow)
+lagoons.add_animal(snake)
+woodland.remove_animal(lion)
+
+print("\n")
+
+print("========= checking the animals in enclosure. =======")
+print(woodland)
+print(woodland.list_animals())
+print(aviary)
+print(aviary.list_animals())
+print(lagoons)
+print(lagoons.list_animals())
+
