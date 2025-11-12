@@ -1,6 +1,6 @@
 '''
 File: staff.py
-Description: A brief description of this Python module.
+Description: defines the staff class, which is a generic staff class with name and role.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -33,7 +33,5 @@ class Staff:
         return f"Staff: {self.__name} | Role: {self.__role}"
 
 
-# staff_member = Staff("Alex", "Zookeeper")
-# print(staff_member.get_name())
-# print(staff_member.get_role())
-# print(staff_member)
+staff_member = Staff("Alex", "Zookeeper")
+print(staff_member)

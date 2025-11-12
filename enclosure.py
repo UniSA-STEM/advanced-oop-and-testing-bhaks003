@@ -1,6 +1,6 @@
 '''
 File: enclosure.py
-Description: A brief description of this Python module.
+Description: Defening the enclosure class, represents a zoo area where animals are kept.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -56,7 +56,7 @@ class Enclosure:
                 f"Only {self.__animal_type}s allowed."
             )
         self.__animals.append(animal)
-        print(f"Added {animal.get_name()} to {self.__name}")
+        return f"Added {animal.get_name()} to {self.__name}"
 
     """
     this method will remove an animal from the enclosure list if none found it will still display the message not found

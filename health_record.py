@@ -1,6 +1,6 @@
 '''
 File: health_record.py
-Description: A brief description of this Python module.
+Description: Defines the HealthRecord class which is used to track an animal medical issue. and will store details like description, severity, treatment and recovery status
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003

@@ -1,6 +1,6 @@
 '''
 File: bird.py
-Description: A brief description of this Python module.
+Description: Defines the bird class, inheriting from abstract animal classes, which represents all the birds in the zoo.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -27,9 +27,8 @@ class Bird(Animal):
     returns the string stating about the daily care needed
     """
     def daily_care(self):
-
         return self.get_name() + " requires a arial enclosure, clean perches and fresh water"
 
-# parrot = Bird("Parrot", "Polly", 2, "Seeds")
+# parrot = Bird("Parrot", "James", 2, "Seeds")
 # print(parrot.make_sound())
 # print(parrot.daily_care())

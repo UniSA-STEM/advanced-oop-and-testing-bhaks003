@@ -1,6 +1,6 @@
 '''
 File: zookeeper.py
-Description: A brief description of this Python module.
+Description: this is zookeeper class, in inherits from staff, responsible to feed and clean the animals and enclosure
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -8,7 +8,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 from staff import Staff
-
+from animal import Animal
 
 class Zookeeper(Staff):
     """
@@ -20,8 +20,8 @@ class Zookeeper(Staff):
         super().__init__(name, "Zookeeper")
 
     # this function is return the string statement about zookeeper feeding the animal
-    def feed_animal(self, name):
-        return f"{self.get_name()} is feeding animal {animal.get_name()} which {animal.get_species()}"
+    def feed_animal(self, animal):
+        return f"{self.get_name()} is feeding animal {animal.get_name()} which is {animal.get_species()}"
 
     """
     this method will return the string statement of cleaning the enclosure will make the enclosure liveable again

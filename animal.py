@@ -1,6 +1,6 @@
 '''
 File: animal.py
-Description: A brief description of this Python module.
+Description: defines the abstract animal class with  shared attributes and behaviors for all animals. Managing health record, enclosures and enforces some implementation in child classes.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -73,12 +73,12 @@ class Animal(ABC):
     """
     Health Management methods
     """
-    def add_health_issues(self, description, severity, treatment):
+    def add_health_issues(self, description, severity, treatment, date_reported):
         # in this method animal's health record can be added which will save the desciption, severity, treatment given and date it was reported
         record = HealthRecord(description, severity, treatment, date_reported)
         self.__health_records.append(record)
 
-    # this method will resolve the health recrod as resolved and will include the notes for future diagnose
+    # this method will resolve the health record as resolved and will include the notes for future diagnose
     def resolve_health_issue(self, index, notes):
         if index < 0 or index >= len(self.__health_records):
             raise IndexError("Invalid health record index")

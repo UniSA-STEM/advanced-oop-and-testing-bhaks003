@@ -1,6 +1,6 @@
 '''
 File: mammal.py
-Description: A brief description of this Python module.
+Description: Defines the mammal class, inheriting from Animal abstract class, representing all mammals in the zoo.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -29,6 +29,6 @@ class Mammal(Animal):
     def daily_care(self):
         return self.get_name() + " is required a land space which is warmth and has regular feeding"
 
-# lion = Mammal("Lion", "Simba", 5, "Meat")
+# lion = Mammal("Lion", "Rocket", 5, "Meat")
 # print(lion.make_sound())
 # print(lion.daily_care())

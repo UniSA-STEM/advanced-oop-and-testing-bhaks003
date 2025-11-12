@@ -1,6 +1,7 @@
 '''
 File: veterinarian.py
-Description: A brief description of this Python module.
+Description: defining the vetarinarian class, which is inheriting from staff, responsible to maintain health record for animals
+Author: Krish Bhadani
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -24,4 +25,4 @@ class Veterinarian(Staff):
         it will store the description, severity, treatment and date_reported for each animal 
         """
         recordings = HealthRecord(description, severity, treatment, date_reported)
-        return f"{self.get_name()} Recorded: {recordings}"
+        print(f"{self.get_name()} Recorded: {recordings}")

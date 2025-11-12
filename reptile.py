@@ -1,6 +1,6 @@
 '''
 File: reptile.py
-Description: A brief description of this Python module.
+Description: defines the repltile class, inheriting from Animal abstract class. consist of all repltiles in the zoo.
 Author: Krish Bhadani
 ID: 110429045
 Username: bhaks003
@@ -16,8 +16,8 @@ class Reptile(Animal):
 
     def make_sound(self):
         """
-                overiding the method passed from the parent class and changing according to child class need
-                in this scenario it will the display the name species and sound bird's make
+            overiding the method passed from the parent class and changing according to child class need
+            in this scenario it will the display the name species and sound bird's make
         """
         return self.get_name() + " the " + self.get_species() + " makes hisss or growls quietly"
 
@@ -29,6 +29,6 @@ class Reptile(Animal):
         return self.get_name() + " requries a dry arera, warm and temperature control system as well."
 
 
-# snake = Reptile("Python", "Sly", 4, "Rats")
+# snake = Reptile("Python", "Nagin", 4, "Rats")
 # print(snake.make_sound())
 # print(snake.daily_care())
