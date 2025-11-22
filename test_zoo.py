@@ -27,13 +27,13 @@ def setup_zoo():
     aviary = Enclosure("Aviary", "Aviary", 4, "bird")
     lagoon = Enclosure("Lagoon", "Lagoon", 5, "reptile")
 
-    zookeeper = Zookeeper("Chachu", "Zookeeper")
-    vet = Veterinarian("Dr. Chichu", "Veterinarian")
+    zookeeper = Zookeeper("Chachu")
+    vet = Veterinarian("Dr. Chichu")
 
     return lion, crow, snake, woodland, aviary, lagoon, zookeeper, vet
 
 
-# ---------- animal tests ----------
+# ------ animal tests -------
 def animal_test_creation(setup_zoo):
     lion, crow, snake, *_ = setup_zoo
     assert lion.get_name() == "Simba"
@@ -49,7 +49,7 @@ def testing_sound_care_animal(setup_zoo):
         assert len(animal.make_sound()) > 0
 
 
-# ---------- enclosure tests ----------
+# ------ enclosure tests -------
 def test_to_add_correct_animal(setup_zoo):
     lion, crow, snake, woodland, aviary, lagoon, *_ = setup_zoo
 
@@ -61,7 +61,7 @@ def test_to_add_correct_animal(setup_zoo):
     assert aviary.get_animal_count() == 1
     assert lagoon.get_animal_count() == 1
 
-
+# ------- test wrong species ------
 def test_to_add_wrong_species(setup_zoo):
     lion, crow, snake, woodland, aviary, lagoon, *_ = setup_zoo
     with pytest.raises(ValueError):
@@ -69,14 +69,14 @@ def test_to_add_wrong_species(setup_zoo):
     with pytest.raises(ValueError):
         lagoon.add_animal(lion)
 
-
+# -------- test removing wrong animals -------
 def test_to_remove_animal(setup_zoo):
     lion, _, _, woodland, *_ = setup_zoo
     woodland.add_animal(lion)
     msg = woodland.remove_animal("Simba")
     assert "removed" in msg or "not found" in msg
 
-
+#  -------- test cleaning enclosure -------
 def test_cleaning_enclosure(setup_zoo):
     _, _, _, woodland, _, _, zookeeper, _ = setup_zoo
     if hasattr(woodland, "make_dirty"):
@@ -86,7 +86,7 @@ def test_cleaning_enclosure(setup_zoo):
     assert woodland.get_cleanliness_level() == "Clean"
 
 
-# ---------- veterinarian tests ----------
+# -------- veterinarian tests ----------
 def test_vet_creating_health_record(setup_zoo):
     lion, *_ , vet = setup_zoo
     before = len(lion.get_health_summary())
@@ -94,3 +94,4 @@ def test_vet_creating_health_record(setup_zoo):
     after = len(lion.get_health_summary())
     assert after > before
     assert any("Gastro infection" in str(r) for r in lion.get_health_summary())
+

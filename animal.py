@@ -43,6 +43,9 @@ class Animal(ABC):
     def get_name(self):
         return self.__name
 
+    def get_diet(self):
+        return self.__diet
+
     def feed(self):
         """
         showcase about animal eating food

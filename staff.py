@@ -33,5 +33,5 @@ class Staff:
         return f"Staff: {self.__name} | Role: {self.__role}"
 
 
-staff_member = Staff("Alex", "Zookeeper")
-print(staff_member)
+# staff_member = Staff("Alex", "Zookeeper")
+# print(staff_member)

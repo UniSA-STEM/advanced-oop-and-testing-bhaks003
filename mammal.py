@@ -20,7 +20,7 @@ class Mammal(Animal):
                 overiding the method passed from the parent class and changing according to child class need
                 in this scenario it will the display the name species and sound bird's make
         """
-        return self.get_name() + " the " + self.get_species() + " s making a deep mammal sound"
+        return self.get_name() + " the " + self.get_species() + " is making a deep mammal sound"
 
     """
         orviding of the abstract daily_care method 

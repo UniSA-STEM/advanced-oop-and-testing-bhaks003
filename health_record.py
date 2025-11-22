@@ -52,4 +52,3 @@ class HealthRecord:
         if self.__resolution_notes:
             text_display += f" | Notes: {self.__resolution_notes}"
         return text_display
-

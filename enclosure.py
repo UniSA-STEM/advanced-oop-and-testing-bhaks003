@@ -65,8 +65,8 @@ class Enclosure:
         for animal in self.__animals:
             if animal.get_name() == name:
                 self.__animals.remove(animal)
-                print(f"{name} has been removed from the {self.__name} enclosure.")
-        print(f"{name} not found in the {self.__name} enclosure.")
+                return f"{name} has been removed from the {self.__name} enclosure."
+        return f"{name} not found in the {self.__name} enclosure."
 
     # this method is will display the animals currently present  in the enclosure and also format how to will show.
     def list_animals(self):

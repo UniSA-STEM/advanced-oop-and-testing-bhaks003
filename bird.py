@@ -32,3 +32,4 @@ class Bird(Animal):
 # parrot = Bird("Parrot", "James", 2, "Seeds")
 # print(parrot.make_sound())
 # print(parrot.daily_care())
+
