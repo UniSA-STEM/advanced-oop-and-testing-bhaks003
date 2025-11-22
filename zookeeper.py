@@ -8,7 +8,6 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 from staff import Staff
-from animal import Animal
 
 class Zookeeper(Staff):
     """
@@ -16,8 +15,8 @@ class Zookeeper(Staff):
     it represent a zoo staff who takes care of feeding and cleaning the enclosure
     for daily purpose
     """
-    def __init__(self, name):
-        super().__init__(name, "Zookeeper")
+    def __init__(self, name, role="Zookeeper"):
+        super().__init__(name, role)
 
     # this function is return the string statement about zookeeper feeding the animal
     def feed_animal(self, animal):
@@ -27,4 +26,5 @@ class Zookeeper(Staff):
     this method will return the string statement of cleaning the enclosure will make the enclosure liveable again
     """
     def clean_enclosure(self, enclosure):
-        return f"{self.get_name()} is cleaning enclosure {enclosure.clean()}"
+        status = enclosure.clean()
+        return f"{self.get_name()} is cleaning enclosure {enclosure.clean()}. {status}"
